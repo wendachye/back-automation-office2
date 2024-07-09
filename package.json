@@ -33,9 +33,9 @@
     "flatpickr": "4.6.13",
     "formik": "2.2.9",
     "html-react-parser": "3.0.16",
-    "react": "18.2.0",
+    "react": ">=16.8.0",
     "react-chartjs-2": "3.0.4",
-    "react-dom": "18.2.0",
+    "react-dom": ">=16.8.0",
     "react-draft-wysiwyg": "^1.15.0",
     "react-flatpickr": "3.10.13",
     "react-images-viewer": "1.7.1",
@@ -86,14 +86,15 @@
     "@types/react-flatpickr": "3.8.8",
     "@types/react-table": "7.7.14",
     "@types/uuid": "9.0.1",
+    "ajv": "^7.2.4",
     "eslint": "8.41.0",
     "eslint-config-prettier": "8.8.0",
+    "eslint-import-resolver-typescript": "3.5.5",
     "eslint-plugin-import": "2.27.5",
     "eslint-plugin-prettier": "4.2.1",
     "eslint-plugin-react": "7.32.2",
     "eslint-plugin-react-hooks": "4.6.0",
-    "prettier": "2.8.8",
-    "eslint-import-resolver-typescript": "3.5.5"
+    "prettier": "2.8.8"
   },
   "overrides": {
     "svgo": "3.0.2"
