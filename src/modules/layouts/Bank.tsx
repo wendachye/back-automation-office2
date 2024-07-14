@@ -25,36 +25,42 @@ const Bank = () => {
       return {
         color: "#495057",
         background: "#FFCF00",
+        backgroundImage: "url(/mbb-background.jpg)",
       };
     }
     if (bankCode === "hlb") {
       return {
         color: "#FFFFFF",
         background: "#002D62",
+        backgroundImage: "url(/hlb-background.jpg)",
       };
     }
     if (bankCode === "cimb") {
       return {
         color: "#FFFFFF",
         background: "#EC1D23",
+        backgroundImage: "url(/cimb-background.png)",
       };
     }
     if (bankCode === "pbb") {
       return {
         color: "#FFFFFF",
         background: "#D84A38",
+        backgroundImage: "url(/pbb-background.jpg)",
       };
     }
     if (bankCode === "rhb") {
       return {
         color: "#FFFFFF",
         background: "#0067B1",
+        backgroundImage: "url(/rhb-background.jpg)",
       };
     }
     if (bankCode === "bsn") {
       return {
         color: "#FFFFFF",
         background: "#00A1B1",
+        backgroundImage: "url(/bsn-background.jpeg)",
       };
     }
     return {
@@ -64,7 +70,7 @@ const Bank = () => {
   }, [bankCode]);
 
   return (
-    <DashboardLayout>
+    <DashboardLayout backgroundImage={theme.backgroundImage}>
       <Grid container justifyContent="center">
         <Grid item display="flex" justifyContent="center" lg={12} xl={8}>
           <Card style={{ minWidth: 350, maxWidth: 500 }}>
