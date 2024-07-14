@@ -7,20 +7,50 @@ import MDTypography from "components/MDTypography";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const Banks = ["Maybank", "Hong Leong Bank", "CIMB", "Public Bank", "RHB", "Bank Islam"];
+const Banks = [
+  {
+    label: "Maybank",
+    value: "mbb",
+  },
+  {
+    label: "Hong Leong Bank",
+    value: "hlb",
+  },
+  {
+    label: "CIMB",
+    value: "cimb",
+  },
+  {
+    label: "Public Bank",
+    value: "pbb",
+  },
+  {
+    label: "RHB",
+    value: "rhb",
+  },
+  {
+    label: "BSN",
+    value: "bsn",
+  },
+];
 
 const Home = () => {
   const navigate = useNavigate();
-  const [selectedBank, setSelectedBank] = useState("Bank");
+  const [selectedBank, setSelectedBank] = useState("bank");
 
   const handleChange = (event: SelectChangeEvent<string>) => {
     setSelectedBank(event.target.value);
   };
 
+  const handleLaunchBank = () => {
+    if (selectedBank === "bank") return;
+    navigate(`/bank/${selectedBank}`);
+  };
+
   return (
     <DashboardLayout>
       <Grid container justifyContent="center">
-        <Grid item display="flex" justifyContent="center" lg={12} xl={8} pt={3} mb={3}>
+        <Grid item display="flex" justifyContent="center" lg={12} xl={8}>
           <Card style={{ minWidth: 350, maxWidth: 500 }}>
             <MDBox p={3}>
               <MDTypography variant="h4" textAlign="center">
@@ -41,12 +71,12 @@ const Home = () => {
                     placeholder="Bank"
                     style={{ width: 300, height: 44 }}
                   >
-                    <MenuItem value={"Bank"} disabled>
+                    <MenuItem value={"bank"} disabled>
                       Bank
                     </MenuItem>
                     {Banks.map((bank) => (
-                      <MenuItem key={bank} value={bank}>
-                        {bank}
+                      <MenuItem key={bank.value} value={bank.value}>
+                        {bank.label}
                       </MenuItem>
                     ))}
                   </Select>
@@ -72,7 +102,13 @@ const Home = () => {
                   </MDButton>
                 </Grid>
                 <Grid item xs={6}>
-                  <MDButton fullWidth variant="gradient" color="dark" size="medium">
+                  <MDButton
+                    fullWidth
+                    variant="gradient"
+                    color="dark"
+                    size="medium"
+                    onClick={handleLaunchBank}
+                  >
                     Launch
                   </MDButton>
                 </Grid>

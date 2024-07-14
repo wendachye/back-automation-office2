@@ -19,7 +19,7 @@ import { styled, Theme } from "@mui/material/styles";
 
 export default styled(TextField)(({ theme, ownerState }: { theme?: Theme; ownerState: any }) => {
   const { palette, functions } = theme;
-  const { error, success, disabled } = ownerState;
+  const { error, success, disabled, themeColor } = ownerState;
 
   const { grey, transparent, error: colorError, success: colorSuccess } = palette;
   const { pxToRem } = functions;
@@ -67,5 +67,16 @@ export default styled(TextField)(({ theme, ownerState }: { theme?: Theme; ownerS
     pointerEvents: disabled ? "none" : "auto",
     ...(error && errorStyles()),
     ...(success && successStyles()),
+    ...(themeColor && {
+      "& .Mui-focused": {
+        "& .MuiOutlinedInput-notchedOutline, &:after": {
+          borderColor: themeColor,
+        },
+      },
+
+      "& .MuiInputLabel-root.Mui-focused": {
+        color: themeColor,
+      },
+    }),
   };
 });

@@ -27,11 +27,14 @@ interface Props extends Omit<OutlinedTextFieldProps | StandardTextFieldProps, "v
   error?: boolean;
   success?: boolean;
   disabled?: boolean;
+  themeColor?: string;
 }
 
-const MDInput: FC<Props | any> = forwardRef(({ error, success, disabled, ...rest }, ref) => (
-  <MDInputRoot {...rest} ref={ref} ownerState={{ error, success, disabled }} />
-));
+const MDInput: FC<Props | any> = forwardRef(
+  ({ error, success, disabled, themeColor, ...rest }, ref) => (
+    <MDInputRoot {...rest} ref={ref} ownerState={{ error, success, disabled, themeColor }} />
+  )
+);
 
 // Declaring default props for MDInput
 MDInput.defaultProps = {

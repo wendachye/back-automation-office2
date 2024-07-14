@@ -37,6 +37,7 @@ function DashboardLayout({ children }: { children: ReactNode }): JSX.Element {
     <MDBox
       sx={({ breakpoints, transitions, functions: { pxToRem } }) => ({
         p: 3,
+        pt: 10,
         position: "relative",
         [breakpoints.up("xl")]: {
           // marginLeft: miniSidenav ? pxToRem(120) : pxToRem(274),

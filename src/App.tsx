@@ -41,6 +41,7 @@ import { setMiniSidenav, useMaterialUIController } from "context";
 
 // Images
 import Home from "modules/layouts";
+import Bank from "modules/layouts/Bank";
 import Transactions from "modules/layouts/report";
 
 export default function App() {
@@ -112,6 +113,7 @@ export default function App() {
       <Routes>
         {/* {getRoutes(routes)} */}
         <Route path="/" element={<Home />} />
+        <Route path="/bank/:bankCode" element={<Bank />} />
         <Route path="/transactions" element={<Transactions />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
