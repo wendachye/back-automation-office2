@@ -70,7 +70,7 @@ export default styled(TextField)(({ theme, ownerState }: { theme?: Theme; ownerS
     ...(themeColor && {
       "& .Mui-focused": {
         "& .MuiOutlinedInput-notchedOutline, &:after": {
-          borderColor: themeColor,
+          borderColor: `${themeColor} !important`,
         },
       },
 

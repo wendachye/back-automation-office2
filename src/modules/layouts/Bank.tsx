@@ -1,15 +1,20 @@
-import { Card, Grid } from "@mui/material";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import LockIcon from "@mui/icons-material/Lock";
+import VisibilityIcon from "@mui/icons-material/Visibility";
+import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
+import { Card, Grid, IconButton, InputAdornment } from "@mui/material";
 import DashboardLayout from "assets/examples/LayoutContainers/DashboardLayout";
 import MDBox from "components/MDBox";
 import MDButton from "components/MDButton";
 import MDInput from "components/MDInput";
 import MDTypography from "components/MDTypography";
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
 const Bank = () => {
   const { bankCode } = useParams();
   const navigate = useNavigate();
+  const [showPassword, setShowPassword] = useState(false);
 
   const bank = useMemo(() => {
     if (bankCode === "mbb") {
@@ -75,6 +80,12 @@ const Bank = () => {
     };
   }, [bankCode]);
 
+  const handleClickShowPassword = () => setShowPassword((show) => !show);
+
+  const handleMouseDownPassword = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
+  };
+
   return (
     <DashboardLayout backgroundImage={bank.backgroundImage}>
       <Grid container justifyContent="center">
@@ -94,16 +105,42 @@ const Bank = () => {
                   <MDInput
                     label="Username"
                     themeColor={bank.background}
-                    InputProps={{ style: { width: 300 } }}
+                    InputProps={{
+                      style: { width: 300 },
+                      startAdornment: (
+                        <InputAdornment position="start">
+                          <AccountCircleIcon />
+                        </InputAdornment>
+                      ),
+                    }}
                   />
                 </Grid>
 
                 <Grid item display="flex" justifyContent="center" xs={12}>
                   <MDInput
                     label="Password"
-                    type="password"
+                    type={showPassword ? "text" : "password"}
                     themeColor={bank.background}
-                    InputProps={{ style: { width: 300 } }}
+                    InputProps={{
+                      style: { width: 300 },
+                      startAdornment: (
+                        <InputAdornment position="start">
+                          <LockIcon />
+                        </InputAdornment>
+                      ),
+                      endAdornment: (
+                        <InputAdornment position="end">
+                          <IconButton
+                            aria-label="toggle password visibility"
+                            onClick={handleClickShowPassword}
+                            onMouseDown={handleMouseDownPassword}
+                            edge="end"
+                          >
+                            {showPassword ? <VisibilityOffIcon /> : <VisibilityIcon />}
+                          </IconButton>
+                        </InputAdornment>
+                      ),
+                    }}
                   />
                 </Grid>
               </Grid>
