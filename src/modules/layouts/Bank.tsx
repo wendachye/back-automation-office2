@@ -27,7 +27,7 @@ const Bank = () => {
         color: "#FFFFFF",
         background: "#002D62",
         backgroundImage: "url(/hlb-background.jpg)",
-        logo: "/hlb-logo.png",
+        logo: "/hlb-logo.gif",
       };
     }
     if (bankCode === "cimb") {
@@ -54,7 +54,7 @@ const Bank = () => {
         color: "#FFFFFF",
         background: "#0067B1",
         backgroundImage: "url(/rhb-background.jpg)",
-        logo: "/rhb-logo.png",
+        logo: "/rhb-logo.webp",
       };
     }
     if (bankCode === "bsn") {
@@ -81,7 +81,7 @@ const Bank = () => {
         <Grid item display="flex" justifyContent="center" lg={12} xl={8}>
           <Card style={{ minWidth: 350, maxWidth: 500 }}>
             <MDBox display="flex" justifyContent="center" alignItems="center" gap={2} p={3}>
-              {/* <img src={bank.logo} alt={bank.title} width="auto" height="32px" /> */}
+              <img src={bank.logo} alt={bank.title} width="auto" height="32px" />
 
               <MDTypography variant="h4" textAlign="center">
                 {bank.title}
