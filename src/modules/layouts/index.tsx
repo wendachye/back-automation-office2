@@ -11,26 +11,32 @@ const Banks = [
   {
     label: "Maybank",
     value: "mbb",
+    logo: "/mbb-logo.png",
   },
   {
     label: "Hong Leong Bank",
     value: "hlb",
+    logo: "/hlb-logo.gif",
   },
   {
     label: "CIMB",
     value: "cimb",
+    logo: "/cimb-logo.png",
   },
   {
     label: "Public Bank",
     value: "pbb",
+    logo: "/pbb-logo.svg",
   },
   {
     label: "RHB",
     value: "rhb",
+    logo: "/rhb-logo.webp",
   },
   {
     label: "BSN",
     value: "bsn",
+    logo: "/bsn-logo.png",
   },
 ];
 
@@ -76,6 +82,14 @@ const Home = () => {
                     </MenuItem>
                     {Banks.map((bank) => (
                       <MenuItem key={bank.value} value={bank.value}>
+                        <img
+                          src={bank.logo}
+                          alt={bank.logo}
+                          width="auto"
+                          height="18px"
+                          style={{ marginRight: 8 }}
+                        />
+
                         {bank.label}
                       </MenuItem>
                     ))}
